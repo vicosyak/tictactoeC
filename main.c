@@ -13,14 +13,14 @@ void boardArr () {
     }
 }
 
-int drawBoard () {
+int drawBoard() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%c", board[i][j]);
         }
         printf("\n");
     }
-};
+}
 
 void makeMove (char currentPlayer) {
     int cell = 0;
@@ -83,4 +83,5 @@ int main () {
             currentPlayer = 'X';
         }
     }
+    return 0;
 }
