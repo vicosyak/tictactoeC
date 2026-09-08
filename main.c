@@ -13,7 +13,7 @@ void boardArr () {
     }
 }
 
-int drawBoard() {
+void drawBoard() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%c", board[i][j]);
@@ -26,7 +26,11 @@ void makeMove (char currentPlayer) {
     int cell = 0;
     while (1) {
         printf("Player %c Print the number 1 to 9: ", currentPlayer);
-        scanf("%d", &cell);
+        if (scanf("%d", &cell) != 1) {
+            while (getchar() != '\n');
+            printf("Invalid input\n");
+            continue;
+            }
 
         if (cell < 1  || cell > 9) {
         printf("Invalid move!\n");
@@ -74,7 +78,8 @@ int main () {
 
         if (moves == 9) {
             drawBoard();
-            printf("It's a draw!");
+            printf("It's a draw!\n");
+            break;
         }
 
         if (currentPlayer == 'X') {
